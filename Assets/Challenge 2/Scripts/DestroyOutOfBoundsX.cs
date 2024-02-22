@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyOutOfBoundsX : MonoBehaviour
 {
-    private float leftLimit = 30;
-    private float bottomLimit = -5;
+    public float leftLimit;
+    public float bottomLimit;
 
     // Update is called once per frame
     void Update()
@@ -13,11 +13,13 @@ public class DestroyOutOfBoundsX : MonoBehaviour
         // Destroy dogs if x position less than left limit
         if (transform.position.x > leftLimit)
         {
+            Debug.Log("entró al límite left");
             Destroy(gameObject);
         } 
-        // Destroy balls if y position is less than bottomLimit
-        else if (transform.position.z < bottomLimit)
+        // Destroy balls if y position is less than bottomLimit - este sí anda
+        else if (transform.position.y < bottomLimit)
         {
+            Debug.Log("GAME OVER");
             Destroy(gameObject);
         }
 
